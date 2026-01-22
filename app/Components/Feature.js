@@ -36,34 +36,31 @@ const Feature = () => {
   ];
   return (
     <>
-      <p className="text-white z-10 border bg-[#ff9500] p-0.5 rounded-full font-mono mb-2">
+     
+      <p className="text-white z-10 border bg-[#ff9500] p-0.5 rounded-full font-mono mb-2 font-medium">
         feature
       </p>
-      <h1 className="flex space-x-2 text-3xl font-semibold font-serif mt-2 mb-2">
-        <p className="text-[#be8029]">Easily build</p>
+      <h1 className="flex space-x-2 text-6xl font-semibold font-serif mt-2 mb-2">
+        <p className="text-[#c8882f] ">Easily build</p>
         <p> your code</p>
       </h1>
-      <main className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 p-6  justify-items-center left-1/2 transform ">
+      <main className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 p-6  justify-items-center left-1/2 transform " id="feature">
+        {features.map((feature, index) => {
+          const Icon = feature.icon;
+          return (
+            <div
+              key={index}
+              className="flex flex-col items-center text-center p-6 border border-gray-700 rounded-2xl bg-gradient-to-br from-black/80 to-black/60 shadow-lg hover:scale-105 transition-transform duration-300"
+            >
+              <Icon className="w-14 h-14 mb-4 text-orange-500" />
 
-  {features.map((feature, index) => {
-    const Icon = feature.icon;
-    return (
-      <div
-        key={index}
-        className="flex flex-col items-center text-center p-6 border border-gray-700 rounded-2xl bg-gradient-to-br from-black/80 to-black/60 shadow-lg hover:scale-105 transition-transform duration-300"
-      >
+              <h3 className="text-xl font-semibold mb-3">{feature.heading}</h3>
 
-        <Icon className="w-14 h-14 mb-4 text-orange-500" />
-
-        <h3 className="text-xl font-semibold mb-3">{feature.heading}</h3>
-
-      
-        <p className="text-sm text-gray-200 max-w-xs">{feature.desc}</p>
-      </div>
-    );
-  })}
-</main>
-
+              <p className="text-sm text-gray-200 max-w-xs">{feature.desc}</p>
+            </div>
+          );
+        })}
+      </main>
     </>
   );
 };

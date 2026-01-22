@@ -5,11 +5,17 @@ import { Menu, X, Info, ListCheck, Briefcase, Folder } from "lucide-react";
 
 const Navbar = () => {
   const [isActive, setIsActive] = useState("home");
-  const navItems = ["home", "about", "feature", "product"];
+  const navItems = ["home", "workflow", "feature", "product"];
   const [isOpen, setIsOpen] = useState(false);
+  const handleScroll = (id) => {
+    const section = document.getElementById(id);
+    if(section)
+      section.scrollIntoView({ behavior: "smooth", block: "center" });
+    else console.warn("Skills section not found!");
+  };
   return (
     <>
-      <nav className="bg-transparent md:flex items-center gap-6 m-2 hidden relative z-50">
+      <nav className="bg-transparent md:flex items-center gap-6 m-2 hidden  z-50 sticky">
         <h1
           className="text-2xl p-2 pb-0 m-1 ml-2 flex cursor-pointer items-center 
                border-b border-transparent 
@@ -23,17 +29,17 @@ const Navbar = () => {
         </h1>
 
         <ul
-          className="flex items-center space-x-4 absolute left-1/2 transform -translate-x-1/2
-             bg-white/20 backdrop-blur-3xl border border-white/30 rounded-full pt-0.5 pb-0.5 pl-1 pr-1"
+          className="flex items-center space-x-4 left-1/2 transform -translate-x-1/2
+             bg-white/20 backdrop-blur-3xl border border-white/30 rounded-full pt-0.5 pb-0.5 pl-1 pr-1 fixed"
         >
           {navItems.map((items) => {
             return (
               <li
                 className={`px-4 py-2 hover:bg-[#FFAA33] rounded-full transition cursor-pointer font-mono ${isActive === items ? "bg-[#be8029] text-white font-semibold" : ""}`}
-                onClick={() => setIsActive(items)}
+                onClick={() => {setIsActive(items);handleScroll(items)}}
                 key={items}
               >
-                {items}
+                {items.charAt(0).toUpperCase() + items.slice(1)}
               </li>
             );
           })}
@@ -110,9 +116,10 @@ const Navbar = () => {
                   onClick={() => {
                     setIsActive(item);
                     setIsOpen(false);
+                    handleScroll(items)
                   }}
                 >
-                  {item}
+                 {items.charAt(0).toUpperCase() + items.slice(1)}
                 </li>
               ))}
 

@@ -17,7 +17,6 @@ const Main = () => {
       if (imageRef.current) {
         const maxMove = 300 
         const targetX = Math.min(scrollY, maxMove) 
-        console.log(targetX)
         //180 offset for the image width
         if((targetX)>window.innerWidth-180){
           return
@@ -28,9 +27,6 @@ const Main = () => {
           imageRef.current.style.transform = `translateX(${nextX}px)`
           return nextX
         })
-
-        // Optional: fade in text after scrolling a bit
-    
       }
 
       animationFrame = requestAnimationFrame(animate)
