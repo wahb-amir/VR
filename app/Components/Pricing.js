@@ -62,9 +62,9 @@ const Pricing = () => {
                 {plan.name}
               </h2>
             )}
-            <p className="text-4xl text-white flex gap-2 --3">{plan.price}
+            <span className="text-4xl text-white flex gap-2 --3">{plan.price}
                 <p className="text-2xl text-white/50">/Month</p>
-            </p>
+            </span>
             <ul className="p-3 mb-5">
               {plan.features.map((feature, i) => (
                 <li key={i} className="text-xl p-2 flex gap-3">
