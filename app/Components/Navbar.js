@@ -116,7 +116,6 @@ const Navbar = () => {
                 </li>
               ))}
 
-              {/* Contact Button */}
               <button className="mt-4 bg-white text-black rounded-full px-6 py-2 hover:bg-gray-200 transition-all duration-150 active:scale-95">
                 Contact Us
               </button>
@@ -124,6 +123,7 @@ const Navbar = () => {
           </>
         )}
       </nav>
+
     </>
   );
 };

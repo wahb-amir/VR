@@ -69,8 +69,8 @@ export default function Background() {
                 key={`c-${x}-${y}`}
                 cx={cx}
                 cy={cy}
-                r={near ? 5 : 3}
-                fill={near ? "#ffaa33" : "rgba(255,255,255,0.5)"}
+                r={near ? 4 : 3}
+                fill={near ? "#ffaa30" : "rgba(255,255,255,0.5)"}
               />
             );
           })
