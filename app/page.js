@@ -2,6 +2,7 @@ import Hero from "./Components/Hero";
 import Vr from "./Components/Vr";
 import Feature from "./Components/Feature";
 import Workflow from "./Components/Workflow";
+import Pricing from "./Components/Pricing";
 export default function Home() {
   return (
     <div className="flex min-h-screen justify-center bg-zinc-50 font-sans dark:bg-black">
@@ -10,7 +11,7 @@ export default function Home() {
         <Vr />
         <Workflow/>
         <Feature/>
-
+        <Pricing/>
       </div>
     </div>
   );

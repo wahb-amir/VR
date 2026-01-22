@@ -5,7 +5,7 @@ import { Menu, X, Info, ListCheck, Briefcase, Folder } from "lucide-react";
 
 const Navbar = () => {
   const [isActive, setIsActive] = useState("home");
-  const navItems = ["home", "workflow", "feature", "product"];
+  const navItems = ["home", "workflow", "feature", "product","pricing"];
   const [isOpen, setIsOpen] = useState(false);
   const handleScroll = (id) => {
     const section = document.getElementById(id);

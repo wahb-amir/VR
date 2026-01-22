@@ -28,7 +28,7 @@ const Hero = () => {
 
        <main className="relative z-10 flex justify-center items-center mt-6 m-auto">
         <div className="flex gap-4">
-          <button className="p-3 rounded-lg bg-[#ee800c] cursor-pointer active:scale-90 transition-all duration-100" onClick={()=>{handleScroll('price')}}>
+          <button className="p-3 rounded-lg bg-[#ee800c] cursor-pointer active:scale-90 transition-all duration-100" onClick={()=>{handleScroll('pricing')}}>
             Get Started
           </button>
           <button className="p-3 rounded-lg border border-white bg-transparent cursor-pointer active:scale-90 transition-all duration-100">
