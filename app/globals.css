@@ -48,3 +48,7 @@ body {
   scrollbar-width: thin;           /* makes it thin */
   scrollbar-color: #555 #1f1f1f;   /* thumb color, track color */
 }
+
+body{
+  overflow-x: hidden !important;
+}

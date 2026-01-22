@@ -41,7 +41,7 @@ const Workflow = () => {
             alt="workflow image"
             width={500}
             height={500}
-            className="rounded-2xl shadow-xl  shadow-[#942cf0] hover:animate-pulse"
+            className="rounded-2xl shadow-xl  shadow-[#942cf0]"
           />
         </div>
        <ul className="max-w-xl mx-auto p-6 rounded-3xl border border-gray-500 bg-black/40 backdrop-blur-lg shadow-2xl z-50 relative">
