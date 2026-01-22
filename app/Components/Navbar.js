@@ -9,8 +9,7 @@ const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   return (
     <>
-      {/* Desktop navbar */}
-      <nav className="bg-transparent md:flex items-center gap-6 m-2 hidden ">
+      <nav className="bg-transparent md:flex items-center gap-6 m-2 hidden relative z-50">
         <h1
           className="text-2xl p-2 pb-0 m-1 ml-2 flex cursor-pointer items-center 
                border-b border-transparent 
@@ -45,7 +44,7 @@ const Navbar = () => {
         </button>
       </nav>
       {/* Mobile navbar */}
-      <nav className="bg-transparent flex items-center gap-6 m-2 md:hidden ">
+      <nav className="bg-transparent flex items-center gap-6 m-2 md:hidden relative z-100">
         <h1
           className="text-2xl p-2 pb-0 m-1 ml-2 flex cursor-pointer items-center 
                border-b border-transparent 
