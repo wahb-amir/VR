@@ -39,7 +39,7 @@ const NeuroContact = () => {
       id="contact"
     >
       <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-orange-400/20 rounded-full blur-[120px] pointer-events-none" />
-      <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-purple-700/20 rounded-full blur-[120px] pointer-events-none" />
+      <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-blue-700/20 rounded-full blur-[120px] pointer-events-none" />
 
       <div className="container mx-auto px-4 flex flex-col lg:flex-row items-center justify-between relative z-10 w-full max-w-7xl">
         <div
@@ -51,7 +51,7 @@ const NeuroContact = () => {
         {/* Form card */}
         <div className="w-full max-w-xl mx-4">
           <div className="backdrop-blur-sm bg-white/5 border border-orange-400/30 p-8 md:p-12 rounded-3xl shadow-2xl relative overflow-hidden group transition-all duration-500 hover:border-orange-300 hover:shadow-orange-500/20">
-            <div className="absolute inset-0 bg-gradient-to-br from-orange-400/5 to-purple-700/5 pointer-events-none" />
+            <div className="absolute inset-0 bg-gradient-to-br from-orange-400/5 to-blue-700/5 pointer-events-none" />
 
             <div className="flex items-center gap-4 mb-8">
               <div className="w-12 h-12 rounded-full bg-gradient-to-tr from-orange-400 to-white p-[2px]">

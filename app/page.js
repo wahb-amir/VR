@@ -1,9 +1,9 @@
 import Hero from "./Components/Hero";
 import Products from "./Components/Products";
-import Workflow from "./Components/Feature";
-import Pricing from "./Components/Pricing";
+import Features from "./Components/Feature";
 import Testimonial from "./Components/Testimonial";
 import Contact from "./Components/Contact";
+import Pricing from "./Components/Pricing";
 import VideoCard from "./Components/VideoCard";
 
 export default function Home() {
@@ -13,7 +13,7 @@ export default function Home() {
       <div className="flex flex-col justify-center items-center  z-10 mb-auto">
         <Hero />
         <Products/>
-        <Workflow/>
+        <Features/>
         <Testimonial/>
         <Contact/>
         {/* <VideoCard />
