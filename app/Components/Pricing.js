@@ -1,6 +1,7 @@
 "use client";
 import React from "react";
 import { Check } from "lucide-react";
+
 const Pricing = () => {
   const pricingPlans = [
     {
@@ -37,46 +38,53 @@ const Pricing = () => {
       buttonText: "Subscribe",
     },
   ];
+
   return (
-    <div >
-      <h1
-        className="text-6xl text-center mt-5 mb-5 font-bold font-serif"
-        id="pricing"
-      >
+    <section className=" text-white py-20 px-6" id="pricing">
+      <h1 className="text-6xl md:text-7xl font-extrabold font-serif text-center mb-16">
         Pricing
       </h1>
-      <main className="w-screen h-fit pt-5 pb-7 rounded-3xl p-5 flex justify-around items-center md:flex-row flex-col">
+
+      <div className="flex flex-col md:flex-row justify-center items-start gap-8 max-w-7xl mx-auto ">
         {pricingPlans.map((plan, index) => (
           <div
             key={index}
-            className="pricing-card border border-gray-500 p-5 rounded-2xl md:w w-90% h-fit bg-black mt-10 mb-10"
+            className={`relative w-full md:w-1/3 bg-gray-800/60 backdrop-blur-lg rounded-3xl border border-white/10 shadow-lg flex flex-col items-center p-8 transform transition duration-300  ${
+              plan.name === "Pro"
+                ? "md:scale-110 z-20 -translate-y-4 shadow-xl shadow-gray-800 hover:scale-115"
+                : "md:scale-100 z-10 hover:scale-105"
+            }`}
           >
-            {plan.name === "Pro" ? (
-              <h2 className="text-2xl font-semibold text-left gap-2 flex p-4">
-                {plan.name}
-                <p className="text-orange-600">(Most Popular)</p>
-              </h2>
-            ) : (
-              <h2 className="text-2xl font-semibold text-left p-4">
-                {plan.name}
-              </h2>
+            {plan.name === "Pro" && (
+              <span className="absolute top-4 right-4 bg-orange-500 text-black font-bold px-3 py-1 rounded-full text-sm uppercase tracking-wide scale-90">
+                Most Popular
+              </span>
             )}
-            <span className="text-4xl text-white flex gap-2 --3">{plan.price}
-                <p className="text-2xl text-white/50">/Month</p>
-            </span>
-            <ul className="p-3 mb-5">
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">{plan.name}</h2>
+            <div className="flex items-baseline mb-6 gap-2">
+              <span className="text-5xl md:text-6xl font-extrabold">
+                {plan.price}
+              </span>
+              <span className="text-xl md:text-2xl text-white/50">/Month</span>
+            </div>
+            <ul className="space-y-3 mb-6 w-full">
               {plan.features.map((feature, i) => (
-                <li key={i} className="text-xl p-2 flex gap-3">
-                    <Check/>
-                    {feature}
-                    </li>
+                <li
+                  key={i}
+                  className="flex items-center gap-3 text-lg md:text-xl"
+                >
+                  <Check className="text-orange-500 w-6 h-6 flex-shrink-0" />
+                  {feature}
+                </li>
               ))}
             </ul>
-            <button className="border border-orange-800 text-center m-auto rounded-xl p-2  cursor-pointer hover:bg-gray-950 transition-all active:scale-90 w-[90%] m-auto">{plan.buttonText}</button>
+            <button className="w-full bg-orange-500 hover:bg-orange-600 text-black font-bold py-4 rounded-xl transition transform active:scale-95 text-lg">
+              {plan.buttonText}
+            </button>
           </div>
         ))}
-      </main>
-    </div>
+      </div>
+    </section>
   );
 };
 
