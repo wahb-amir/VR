@@ -62,7 +62,7 @@ export default function Background() {
             const cx = x * GRID_SIZE;
             const cy = y * GRID_SIZE;
             const dist = Math.hypot(cx - mouse.x, cy - mouse.y);
-            const near = dist < 185;
+            const near = dist < 145;
 
             return (
               <circle
