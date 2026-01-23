@@ -11,8 +11,7 @@ const Hero = () => {
   };
   return (
     <>
-    <div className="z-10 flex flex-col items-center md:items-start gap-y-4 mt-10 mb-auto left-1/2 top-1/2 transform " id="home">
-
+    <div className="z-10 flex flex-col items-center md:items-start gap-y-4 mt-25 md:mt-10 mb-auto left-1/2 top-1/2 transform " id="home">
       <header >
         <div className="flex flex-col items-center md:items-start gap-y-4">
           <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-center md:text-left leading-snug">

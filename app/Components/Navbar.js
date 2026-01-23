@@ -50,7 +50,7 @@ const Navbar = () => {
         </button>
       </nav>
       {/* Mobile navbar */}
-      <nav className="bg-transparent flex items-center gap-6 m-2 tablet:hidden relative z-100">
+      <nav className="flex items-center gap-6 m-2 tablet:hidden z-100 fixed  w-[94%] bg-white/20 backdrop-blur-3xl border border-white/30 rounded-full mt-5">
         <h1
           className="text-2xl p-2 pb-0 m-1 ml-2 flex cursor-pointer items-center 
                border-b border-transparent 
@@ -80,7 +80,7 @@ const Navbar = () => {
 
             <ul
               className={`absolute top-4 left-1/2 transform -translate-x-1/2
-                flex flex-col space-y-4 bg-white/20 backdrop-blur-3xl border border-white/30
+                flex flex-col space-y-4 bg-white/20 backdrop-blur-xl border border-white/30
                 rounded-2xl p-6 w-full max-w-full
                 transition-all duration-300 ease-in-out
                 ${isOpen ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-6 pointer-events-none"}`}
