@@ -1,22 +1,24 @@
 import Hero from "./Components/Hero";
-import Feature from "./Components/Feature";
-import Workflow from "./Components/Workflow";
+import Products from "./Components/Products";
+import Workflow from "./Components/Feature";
 import Pricing from "./Components/Pricing";
-import Testimonial from './Components/Testimonial'
+import Testimonial from "./Components/Testimonial";
 import Contact from "./Components/Contact";
 import VideoCard from "./Components/VideoCard";
 
 export default function Home() {
   return (
-    <div className="flex min-h-screen justify-center bg-zinc-50 font-sans dark:bg-black">
+    <div className="flex min-h-screen justify-center 
+    text-black dark:text-white bg-gradient-to-t from-gray-900 via-gray-900 to-gray-800">
       <div className="flex flex-col justify-center items-center  z-10 mb-auto">
         <Hero />
-        <VideoCard />
+        <Products/>
         <Workflow/>
-        <Feature/>
-        <Pricing/>
         <Testimonial/>
         <Contact/>
+        {/* <VideoCard />
+        <Pricing/>
+         */}
       </div>
     </div>
   );

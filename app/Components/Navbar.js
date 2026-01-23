@@ -4,7 +4,7 @@ import { Menu, X } from "lucide-react";
 
 const Navbar = () => {
   const [isActive, setIsActive] = useState("home");
-  const navItems = ["home", "workflow", "feature", "pricing", "testimonial"];
+  const navItems = ["home", "products", "feature", "pricing", "testimonial"];
   const [isOpen, setIsOpen] = useState(false);
   const overlayRef = useRef(null);
 
@@ -33,21 +33,27 @@ const Navbar = () => {
 
   return (
     <>
-      {/* Desktop*/}
+      {/* Desktop */}
       <nav
-        className="hidden tablet:flex md:flex items-center gap-6 m-2 z-50 sticky top-4"
+        className="hidden tablet:flex md:flex items-center gap-6 p-4 z-50 sticky top-4  bg-gradient-to-t"
         aria-label="Primary"
       >
-        <h1 className="text-2xl p-2 pb-0 m-1 ml-2 flex cursor-pointer items-center border-b border-transparent hover:border-gray-200 hover:animate-pulse transition-all duration-300 active:scale-95">
-          {" "}
-          <p className="font-semibold text-gray-200">N</p> <p>euro</p>{" "}
-          <p className="font-semibold pl-1 text-gray-300">VR</p>{" "}
+        <h1
+          className="text-2xl p-2 pb-0 m-1 ml-2 flex cursor-pointer items-center
+                     border-b border-transparent hover:animate-pulse transition-all duration-300 active:scale-95"
+          onClick={() => handleScroll("home")}
+        >
+          <span className="font-semibold text-white">N</span>
+          <span className="ml-1 text-white/90">euro</span>
+          <span className="font-semibold pl-2 bg-clip-text text-transparent bg-gradient-to-r from-blue-300 to-teal-300">
+            VR
+          </span>
         </h1>
 
         <ul
           className="absolute left-1/2 transform -translate-x-1/2
                      flex items-center space-x-3
-                     bg-white/12 backdrop-blur-sm border border-white/20
+                     bg-white/8 backdrop-blur-sm border border-white/10
                      rounded-full px-2 py-1 max-w-[80%] md:max-w-[60%] lg:max-w-[50%] overflow-x-auto"
           role="menubar"
         >
@@ -57,8 +63,8 @@ const Navbar = () => {
               role="menuitem"
               className={`px-4 py-2 whitespace-nowrap rounded-full cursor-pointer font-mono text-sm transition-all duration-150 ${
                 isActive === items
-                  ? "bg-[#be8029] text-white font-semibold"
-                  : "text-white/90 hover:bg-[#FFAA33]/90"
+                  ? "bg-gradient-to-r from-blue-500 to-teal-400 text-white font-semibold shadow-md"
+                  : "text-white/90 hover:bg-white/10"
               }`}
               onClick={() => {
                 setIsActive(items);
@@ -72,9 +78,8 @@ const Navbar = () => {
 
         <div className="ml-auto pr-3">
           <button
-            className="text-black bg-white rounded-full px-4 py-2 hover:bg-gray-200 transition active:scale-95 text-sm"
+            className="bg-gradient-to-r from-blue-500 to-teal-400 text-white rounded-full px-4 py-2 hover:scale-95 transition active:scale-95 text-sm shadow-sm"
             onClick={() => {
-              // example action
               document
                 .getElementById("contact")
                 ?.scrollIntoView({ behavior: "smooth" });
@@ -91,20 +96,25 @@ const Navbar = () => {
         aria-label="Mobile primary"
       >
         <div
-          className="w-full bg-white/10 backdrop-blur-sm border border-white/20 rounded-full px-3 py-2 flex items-center justify-between"
+          className="w-full bg-white/6 backdrop-blur-sm border border-white/10 rounded-full px-3 py-2 flex items-center justify-between"
           style={{ backdropFilter: "blur(6px)" }}
         >
-          <h1 className="text-2xl p-2 pb-0 m-1 ml-2 flex cursor-pointer items-center border-b border-transparent hover:border-gray-200 hover:animate-pulse transition-all duration-300 active:scale-95">
-          {" "}
-          <p className="font-semibold text-gray-200">N</p> <p>euro</p>{" "}
-          <p className="font-semibold pl-1 text-gray-300">VR</p>{" "}
-        </h1>
+          <h1
+            className="text-2xl p-2 pb-0 m-1 ml-2 flex cursor-pointer items-center transition-all duration-300 active:scale-95"
+            onClick={() => handleScroll("home")}
+          >
+            <span className="font-semibold text-white">N</span>
+            <span className="ml-1 text-white/90">euro</span>
+            <span className="font-semibold pl-2 bg-clip-text text-transparent bg-gradient-to-r from-blue-300 to-teal-300">
+              VR
+            </span>
+          </h1>
 
           <button
             aria-label={isOpen ? "Close menu" : "Open menu"}
             aria-expanded={isOpen}
             onClick={() => setIsOpen((s) => !s)}
-            className="p-2 rounded-full hover:bg-white/20 transition active:scale-95"
+            className="p-2 rounded-full hover:bg-white/10 transition active:scale-95"
           >
             <Menu className={`${isOpen ? "hidden" : "block"} text-white`} />
             <X className={`${isOpen ? "block" : "hidden"} text-white`} />
@@ -119,26 +129,34 @@ const Navbar = () => {
             aria-hidden={!isOpen}
           >
             {/* dim background (clickable to close) */}
-            <div className="absolute inset-0 bg-black/40" />
+            <div className="absolute inset-0 bg-black/50" />
 
             {/* menu panel */}
             <div
-              className="relative mt-20 w-[92%] max-w-lg bg-white/12 backdrop-blur-sm border border-white/20 rounded-2xl p-5 z-50 shadow-lg"
+              className="relative mt-20 w-[92%] max-w-lg bg-white/6 backdrop-blur-sm border border-white/10 rounded-2xl p-5 z-50 shadow-xl"
               style={{
                 transform: "translateY(0)",
                 transition: "transform 220ms ease, opacity 220ms ease",
               }}
             >
               <div className="flex items-center justify-between mb-4">
-                <h1 className="text-2xl p-2 pb-0 m-1 ml-2 flex cursor-pointer items-center border-b border-transparent hover:border-gray-200 hover:animate-pulse transition-all duration-300 active:scale-95">
-                  {" "}
-                  <p className="font-semibold text-gray-200">N</p> <p>euro</p>{" "}
-                  <p className="font-semibold pl-1 text-gray-300">VR</p>{" "}
+                <h1
+                  className="text-2xl p-2 pb-0 m-1 ml-2 flex cursor-pointer items-center transition-all duration-300 active:scale-95"
+                  onClick={() => {
+                    setIsOpen(false);
+                    handleScroll("home");
+                  }}
+                >
+                  <span className="font-semibold text-white">N</span>
+                  <span className="ml-1 text-white/90">euro</span>
+                  <span className="font-semibold pl-2 bg-clip-text text-transparent bg-gradient-to-r from-blue-300 to-teal-300">
+                    VR
+                  </span>
                 </h1>
                 <button
                   onClick={() => setIsOpen(false)}
                   aria-label="Close menu"
-                  className="p-2 rounded-full hover:bg-white/20 transition active:scale-95"
+                  className="p-2 rounded-full hover:bg-white/10 transition active:scale-95"
                 >
                   <X />
                 </button>
@@ -150,8 +168,8 @@ const Navbar = () => {
                     key={item}
                     className={`px-4 py-3 rounded-full cursor-pointer text-center font-mono transition ${
                       isActive === item
-                        ? "bg-[#be8029] text-white font-semibold"
-                        : "text-white/90 hover:bg-[#FFAA33]/90"
+                        ? "bg-gradient-to-r from-blue-500 to-teal-400 text-white font-semibold shadow-md"
+                        : "text-white/90 hover:bg-white/10"
                     }`}
                     onClick={() => {
                       setIsActive(item);
@@ -170,7 +188,7 @@ const Navbar = () => {
                       .getElementById("contact")
                       ?.scrollIntoView({ behavior: "smooth" });
                   }}
-                  className="mt-2 bg-white text-black rounded-full px-6 py-2 hover:bg-gray-200 transition active:scale-95"
+                  className="mt-2 bg-gradient-to-r from-blue-500 to-teal-400 text-white rounded-full px-6 py-2 hover:scale-95 transition active:scale-95 shadow-sm"
                 >
                   Contact Us
                 </button>

@@ -42,9 +42,9 @@ export default function Footer() {
   const toggle = (title) => setOpen((s) => ({ ...s, [title]: !s[title] }));
 
   return (
-    <footer className="relative z-10 w-full bg-gradient-to-t from-gray-900 via-gray-900 to-gray-800 text-white border-t border-white/6">
+    <footer className="relative z-0 w-full bg-gradient-to-t from-gray-900 via-gray-900 to-gray-800 text-white border-t border-white/6">
       <div
-        className="relative z-10 w-full px-6 py-12"
+        className="relative z-0 w-full px-6 py-12"
         style={{
           backdropFilter: "blur(6px)",
           WebkitBackdropFilter: "blur(6px)",

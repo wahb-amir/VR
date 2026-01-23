@@ -1,5 +1,4 @@
 @import "tailwindcss";
-
 :root {
   --background: #ffffff;
   --foreground: #171717;
@@ -66,4 +65,4 @@ body{
     @media (width >= 1000px /* 768px */) {
         width: 30%;
     }
-}
+  }

@@ -1,7 +1,6 @@
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Navbar from "./Components/Navbar";
-import Background from "./Components/Background";
 import Footer from "./Components/Footer";
 import Head from "next/head";
 
@@ -89,8 +88,12 @@ export default function RootLayout({ children }) {
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <Navbar />
-        <Background />
+        <div className="h-fit w-full m-0 p-0 bg-gradient-to-t from-gray-900 via-gray-900 to-gray-800">
+          <Navbar />
+          <hr className=" text-gray-500"/>
+        </div>
+
+        {/* <Background /> */}
         {children}
         <Footer />
       </body>
