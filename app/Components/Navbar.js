@@ -1,136 +1,184 @@
 "use client";
-import React from "react";
-import { useState } from "react";
-import { Menu, X, Info, ListCheck, Briefcase, Folder } from "lucide-react";
+import React, { useEffect, useRef, useState } from "react";
+import { Menu, X } from "lucide-react";
 
 const Navbar = () => {
   const [isActive, setIsActive] = useState("home");
-  const navItems = ["home", "workflow", "feature","pricing","testimonial"];
+  const navItems = ["home", "workflow", "feature", "pricing", "testimonial"];
   const [isOpen, setIsOpen] = useState(false);
+  const overlayRef = useRef(null);
+
+  useEffect(() => {
+    // close on Escape
+    const onKey = (e) => {
+      if (e.key === "Escape") setIsOpen(false);
+    };
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, []);
+
+  // close if clicking overlay
+  const handleOverlayClick = (e) => {
+    if (e.target === overlayRef.current) setIsOpen(false);
+  };
+
   const handleScroll = (id) => {
     const section = document.getElementById(id);
-    if(section)
+    if (section) {
       section.scrollIntoView({ behavior: "smooth", block: "center" });
-    else console.warn("Skills section not found!");
+    } else {
+      console.warn(`${id} section not found!`);
+    }
   };
+
   return (
     <>
-      <nav className="bg-transparent tablet:flex items-center gap-6 m-2 hidden z-50 sticky">
-        <h1
-          className="text-2xl p-2 pb-0 m-1 ml-2 flex cursor-pointer items-center 
-               border-b border-transparent 
-               hover:border-gray-200
-               hover:animate-pulse
-               transition-all duration-300 active:scale-95"
-        >
-          <p className="font-semibold text-gray-200">N</p>
-          <p>euro</p>
-          <p className="font-semibold pl-1 text-gray-300">VR</p>
+      {/* Desktop*/}
+      <nav
+        className="hidden tablet:flex md:flex items-center gap-6 m-2 z-50 sticky top-4"
+        aria-label="Primary"
+      >
+        <h1 className="text-2xl p-2 pb-0 m-1 ml-2 flex cursor-pointer items-center border-b border-transparent hover:border-gray-200 hover:animate-pulse transition-all duration-300 active:scale-95">
+          {" "}
+          <p className="font-semibold text-gray-200">N</p> <p>euro</p>{" "}
+          <p className="font-semibold pl-1 text-gray-300">VR</p>{" "}
         </h1>
 
         <ul
-          className="flex items-center space-x-4 left-1/2 transform -translate-x-1/2
-             bg-white/20 backdrop-blur-3xl border border-white/30 rounded-full pt-0.5 pb-0.5 pl-1 pr-1 fixed"
+          className="absolute left-1/2 transform -translate-x-1/2
+                     flex items-center space-x-3
+                     bg-white/12 backdrop-blur-sm border border-white/20
+                     rounded-full px-2 py-1 max-w-[80%] md:max-w-[60%] lg:max-w-[50%] overflow-x-auto"
+          role="menubar"
         >
-          {navItems.map((items) => {
-            return (
-              <li
-                className={`px-4 py-2 hover:bg-[#FFAA33] rounded-full transition cursor-pointer font-mono ${isActive === items ? "bg-[#be8029] text-white font-semibold" : ""}`}
-                onClick={() => {setIsActive(items);handleScroll(items)}}
-                key={items}
-              >
-                {items.charAt(0).toUpperCase() + items.slice(1)}
-              </li>
-            );
-          })}
+          {navItems.map((items) => (
+            <li
+              key={items}
+              role="menuitem"
+              className={`px-4 py-2 whitespace-nowrap rounded-full cursor-pointer font-mono text-sm transition-all duration-150 ${
+                isActive === items
+                  ? "bg-[#be8029] text-white font-semibold"
+                  : "text-white/90 hover:bg-[#FFAA33]/90"
+              }`}
+              onClick={() => {
+                setIsActive(items);
+                handleScroll(items);
+              }}
+            >
+              {items.charAt(0).toUpperCase() + items.slice(1)}
+            </li>
+          ))}
         </ul>
 
-        <button className="text-black bg-white rounded-full p-2 cursor-pointer pl-4 pr-4 hover:bg-gray-200 transition-all duration-100 active:scale-95 absolute right-1 transform -translate-x-1/2">
-          Contact us
-        </button>
+        <div className="ml-auto pr-3">
+          <button
+            className="text-black bg-white rounded-full px-4 py-2 hover:bg-gray-200 transition active:scale-95 text-sm"
+            onClick={() => {
+              // example action
+              document
+                .getElementById("contact")
+                ?.scrollIntoView({ behavior: "smooth" });
+            }}
+          >
+            Contact us
+          </button>
+        </div>
       </nav>
-      {/* Mobile navbar */}
-      <nav className="flex items-center gap-6 m-2 tablet:hidden z-100 fixed  w-[94%] bg-white/20 backdrop-blur-3xl border border-white/30 rounded-full mt-5">
-        <h1
-          className="text-2xl p-2 pb-0 m-1 ml-2 flex cursor-pointer items-center 
-               border-b border-transparent 
-               hover:border-gray-200
-               hover:animate-pulse
-               transition-all duration-300 active:scale-95"
+
+      {/* Mobile */}
+      <nav
+        className="flex tablet:hidden md:hidden items-center m-2 z-[100] fixed top-4 left-1/2 transform -translate-x-1/2 w-[94%] max-w-xl"
+        aria-label="Mobile primary"
+      >
+        <div
+          className="w-full bg-white/10 backdrop-blur-sm border border-white/20 rounded-full px-3 py-2 flex items-center justify-between"
+          style={{ backdropFilter: "blur(6px)" }}
         >
-          <p className="font-semibold text-gray-200">N</p>
-          <p>euro</p>
-          <p className="font-semibold pl-1 text-gray-300">VR</p>
+          <h1 className="text-2xl p-2 pb-0 m-1 ml-2 flex cursor-pointer items-center border-b border-transparent hover:border-gray-200 hover:animate-pulse transition-all duration-300 active:scale-95">
+          {" "}
+          <p className="font-semibold text-gray-200">N</p> <p>euro</p>{" "}
+          <p className="font-semibold pl-1 text-gray-300">VR</p>{" "}
         </h1>
 
-        <Menu
-          className={`cursor-pointer transition-all duration-100 active:scale-95 absolute right-1 transform -translate-x-1/2 ${
-            isOpen ? "hidden" : ""
-          }`}
-          onClick={() => {
-            setIsOpen(!isOpen);
-          }}
-        />
+          <button
+            aria-label={isOpen ? "Close menu" : "Open menu"}
+            aria-expanded={isOpen}
+            onClick={() => setIsOpen((s) => !s)}
+            className="p-2 rounded-full hover:bg-white/20 transition active:scale-95"
+          >
+            <Menu className={`${isOpen ? "hidden" : "block"} text-white`} />
+            <X className={`${isOpen ? "block" : "hidden"} text-white`} />
+          </button>
+        </div>
+
         {isOpen && (
-          <>
+          <div
+            ref={overlayRef}
+            onClick={handleOverlayClick}
+            className="fixed inset-0 z-[90] flex items-start justify-center"
+            aria-hidden={!isOpen}
+          >
+            {/* dim background (clickable to close) */}
+            <div className="absolute inset-0 bg-black/40" />
+
+            {/* menu panel */}
             <div
-              className={`fixed inset-0 bg-black/50 backdrop-blur-sm transition-opacity duration-300 
-          ${isOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"}`}
-            />
-
-            <ul
-              className={`absolute top-4 left-1/2 transform -translate-x-1/2
-                flex flex-col space-y-4 bg-white/20 backdrop-blur-xl border border-white/30
-                rounded-2xl p-6 w-full max-w-full
-                transition-all duration-300 ease-in-out
-                ${isOpen ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-6 pointer-events-none"}`}
+              className="relative mt-20 w-[92%] max-w-lg bg-white/12 backdrop-blur-sm border border-white/20 rounded-2xl p-5 z-50 shadow-lg"
+              style={{
+                transform: "translateY(0)",
+                transition: "transform 220ms ease, opacity 220ms ease",
+              }}
             >
-              <h1
-                className="text-2xl p-2 pb-0 m-1 ml-2 flex cursor-pointer items-center 
-               border-b border-transparent 
-               hover:border-gray-200
-               hover:animate-pulse
-               transition-all duration-300 active:scale-95 absolute top-1"
-              >
-                <p className="font-semibold text-gray-200">N</p>
-                <p>euro</p>
-                <p className="font-semibold pl-1 text-gray-300">VR</p>
-              </h1>
-
-              <div className="flex items-center ">
-                <span className="flex-1"></span>
-                <X
-                  size={24}
-                  className={`cursor-pointer relative z-50 transition-all duration-100 active:scale-95 ${
-                    isOpen ? "" : "hidden"
-                  }`}
+              <div className="flex items-center justify-between mb-4">
+                <h1 className="text-2xl p-2 pb-0 m-1 ml-2 flex cursor-pointer items-center border-b border-transparent hover:border-gray-200 hover:animate-pulse transition-all duration-300 active:scale-95">
+                  {" "}
+                  <p className="font-semibold text-gray-200">N</p> <p>euro</p>{" "}
+                  <p className="font-semibold pl-1 text-gray-300">VR</p>{" "}
+                </h1>
+                <button
                   onClick={() => setIsOpen(false)}
-                />
+                  aria-label="Close menu"
+                  className="p-2 rounded-full hover:bg-white/20 transition active:scale-95"
+                >
+                  <X />
+                </button>
               </div>
 
-              {navItems.map((item) => (
-                <li
-                  key={item}
-                  className={`px-6 py-2 rounded-full cursor-pointer font-mono transition-all border-t-white border mt-1
-              ${isActive === item ? "bg-[#be8029] text-white font-semibold" : "hover:bg-[#FFAA33]"}`}
-                  onClick={() => {
-                    setIsActive(item);
-                    setIsOpen(false);
-                    handleScroll(item)
-                  }}
-                >
-                 {item.charAt(0).toUpperCase() + item.slice(1)}
-                </li>
-              ))}
+              <ul className="flex flex-col gap-3">
+                {navItems.map((item) => (
+                  <li
+                    key={item}
+                    className={`px-4 py-3 rounded-full cursor-pointer text-center font-mono transition ${
+                      isActive === item
+                        ? "bg-[#be8029] text-white font-semibold"
+                        : "text-white/90 hover:bg-[#FFAA33]/90"
+                    }`}
+                    onClick={() => {
+                      setIsActive(item);
+                      setIsOpen(false);
+                      handleScroll(item);
+                    }}
+                  >
+                    {item.charAt(0).toUpperCase() + item.slice(1)}
+                  </li>
+                ))}
 
-              <button className="mt-4 bg-white text-black rounded-full px-6 py-2 hover:bg-gray-200 transition-all duration-150 active:scale-95">
-                Contact Us
-              </button>
-            </ul>
-          </>
+                <button
+                  onClick={() => {
+                    setIsOpen(false);
+                    document
+                      .getElementById("contact")
+                      ?.scrollIntoView({ behavior: "smooth" });
+                  }}
+                  className="mt-2 bg-white text-black rounded-full px-6 py-2 hover:bg-gray-200 transition active:scale-95"
+                >
+                  Contact Us
+                </button>
+              </ul>
+            </div>
+          </div>
         )}
       </nav>
-
     </>
   );
 };
