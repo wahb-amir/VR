@@ -25,6 +25,11 @@ const image = "https://whab.space/og-image.png";
 export const metadata = {
   title: siteTitle,
   description: siteDescription,
+  icons: {
+    icon: "/favicon.ico",
+    shortcut: "/favicon-16x16.png",
+    apple: "/apple-touch-icon.png",
+  },
 };
 
 export default function RootLayout({ children }) {
