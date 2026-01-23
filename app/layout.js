@@ -93,7 +93,6 @@ export default function RootLayout({ children }) {
           <hr className=" text-gray-500"/>
         </div>
 
-        {/* <Background /> */}
         {children}
         <Footer />
       </body>

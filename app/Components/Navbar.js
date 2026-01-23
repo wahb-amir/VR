@@ -9,6 +9,32 @@ const Navbar = () => {
   const overlayRef = useRef(null);
 
   useEffect(() => {
+  const sections = navItems.map((id) => document.getElementById(id));
+  if (!sections) return;
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          setIsActive(entry.target.id);
+        }
+      });
+    },
+    {
+      root: null, // viewport
+      rootMargin: "-50% 0px -50% 0px", // trigger when section is near center
+      threshold: 0,
+    }
+  );
+
+  sections.forEach((section) => section && observer.observe(section));
+
+  return () => {
+    sections.forEach((section) => section && observer.unobserve(section));
+  };
+}, []);
+
+  useEffect(() => {
     const onKey = (e) => {
       if (e.key === "Escape") setIsOpen(false);
     };
@@ -77,7 +103,7 @@ const Navbar = () => {
 
         <div className="pointer-events-auto">
           <button
-            className="bg-gradient-to-r from-blue-500 to-teal-400 text-white rounded-full px-5 py-2 hover:scale-105 transition active:scale-95 text-sm shadow-md font-medium"
+            className="bg-gradient-to-r from-blue-500 to-blue-400 text-white rounded-full px-5 py-2 hover:scale-105 transition active:scale-95 text-sm shadow-md font-medium"
             onClick={() => {
               document
                 .getElementById("contact")

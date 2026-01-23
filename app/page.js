@@ -16,9 +16,7 @@ export default function Home() {
         <Features/>
         <Testimonial/>
         <Contact/>
-        {/* <VideoCard />
-        <Pricing/>
-         */}
+        
       </div>
     </div>
   );
