@@ -37,7 +37,7 @@ const Workflow = () => {
       <main className="flex w-screen flex-col xl:flex-row mt-5 mb-5 ">
         <div className="m-auto">
           <Image
-            src={"/workflow.png"}
+            src={"/workflow.avif"}
             alt="workflow image"
             width={500}
             height={500}
