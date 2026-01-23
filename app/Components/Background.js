@@ -27,7 +27,7 @@ export default function Background() {
   const rows = Math.ceil(size.h / GRID_SIZE);
 
   return (
-    <div className="fixed inset-0 bg-black z-0">
+    <div className="fixed inset-0 bg-black z-0 overflow-y-hidden! max-w-screen max-h-full">
       <svg
         width="100%"
         height="100%"

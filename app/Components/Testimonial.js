@@ -42,7 +42,7 @@ const Testimonial = () => {
 
   return (
     <div id="testimonial">
-      <h1 className="text-6xl mt-5 mb-6 font-bold font-serif">
+      <h1 className="md:text-6xl text-2xl mt-5 mb-6 font-bold font-serif">
         What people are saying
       </h1>
     </div>

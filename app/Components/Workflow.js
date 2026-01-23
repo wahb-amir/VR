@@ -29,22 +29,22 @@ const Workflow = () => {
         Workflow
       </p>
       <h1 className="flex space-x-2 text-center w-fit m-auto">
-        <p className="text-[#be8029] text-6xl font-bold font-serif mt-5 mb-5">
+        <p className="text-[#be8029] md:text-6xl text-2xl font-bold font-serif mt-5 mb-5">
           Accelerate Your
         </p>
-        <p className="text-white font-bold font-serif  mt-5 mb-5 text-6xl ">Coding flow</p>
+        <p className="text-white font-bold font-serif  mt-5 mb-5 md:text-6xl text-2xl ">Coding flow</p>
       </h1>
-      <main className="flex w-screen ">
+      <main className="flex w-screen flex-col xl:flex-row mt-5 mb-5 ">
         <div className="m-auto">
           <Image
             src={"/workflow.png"}
             alt="workflow image"
             width={500}
             height={500}
-            className="rounded-2xl shadow-xl  shadow-[#942cf0]"
+            className="rounded-2xl shadow-xl  shadow-[#942cf0] mb-5"
           />
         </div>
-       <ul className="max-w-xl mx-auto p-6 rounded-3xl border border-gray-500 bg-black/40 backdrop-blur-lg shadow-2xl z-50 relative">
+       <ul className="flex flex-col gap-y-3 max-w-xl mx-auto p-6 rounded-3xl border border-gray-500  bg-black/40 backdrop-blur-lg shadow-2xl z-50 relative">
   {features.map((feature) => (
     <li key={feature.heading} className="mb-6 last:mb-0">
       <h2 className="text-2xl font-semibold font-sans flex items-center gap-3">

@@ -15,7 +15,7 @@ const Navbar = () => {
   };
   return (
     <>
-      <nav className="bg-transparent md:flex items-center gap-6 m-2 hidden  z-50 sticky">
+      <nav className="bg-transparent tablet:flex items-center gap-6 m-2 hidden z-50 sticky">
         <h1
           className="text-2xl p-2 pb-0 m-1 ml-2 flex cursor-pointer items-center 
                border-b border-transparent 
@@ -50,7 +50,7 @@ const Navbar = () => {
         </button>
       </nav>
       {/* Mobile navbar */}
-      <nav className="bg-transparent flex items-center gap-6 m-2 md:hidden relative z-100">
+      <nav className="bg-transparent flex items-center gap-6 m-2 tablet:hidden relative z-100">
         <h1
           className="text-2xl p-2 pb-0 m-1 ml-2 flex cursor-pointer items-center 
                border-b border-transparent 
@@ -116,10 +116,10 @@ const Navbar = () => {
                   onClick={() => {
                     setIsActive(item);
                     setIsOpen(false);
-                    handleScroll(items)
+                    handleScroll(item)
                   }}
                 >
-                 {items.charAt(0).toUpperCase() + items.slice(1)}
+                 {item.charAt(0).toUpperCase() + item.slice(1)}
                 </li>
               ))}
 

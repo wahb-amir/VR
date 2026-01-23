@@ -40,7 +40,7 @@ const Feature = () => {
       <p className="text-white z-10 border bg-[#ff9500] p-0.5 rounded-full font-mono mb-2 font-medium">
         feature
       </p>
-      <h1 className="flex space-x-2 text-6xl font-semibold font-serif mt-2 mb-2">
+      <h1 className="flex space-x-2 md:text-6xl text-2xl font-semibold font-serif mt-2 mb-2">
         <p className="text-[#c8882f] ">Easily build</p>
         <p> your code</p>
       </h1>

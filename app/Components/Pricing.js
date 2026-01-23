@@ -45,13 +45,12 @@ const Pricing = () => {
       >
         Pricing
       </h1>
-      <main className="w-screen h-fit pt-5 pb-7 rounded-3xl p-5 flex justify-around items-center">
+      <main className="w-screen h-fit pt-5 pb-7 rounded-3xl p-5 flex justify-around items-center md:flex-row flex-col">
         {pricingPlans.map((plan, index) => (
           <div
             key={index}
-            className="pricing-card border border-gray-500 p-5 rounded-2xl w-[25vw] h-fit bg-black"
+            className="pricing-card border border-gray-500 p-5 rounded-2xl md:w w-90% h-fit bg-black mt-10 mb-10"
           >
-            {/* <h2 className="text-2xl font-semibold text-center">{plan.name}</h2> */}
             {plan.name === "Pro" ? (
               <h2 className="text-2xl font-semibold text-left gap-2 flex p-4">
                 {plan.name}
@@ -73,7 +72,7 @@ const Pricing = () => {
                     </li>
               ))}
             </ul>
-            <button className="border border-orange-800 text-center m-auto rounded-xl p-2 w-full cursor-pointer hover:bg-gray-950 transition-all active:scale-90">{plan.buttonText}</button>
+            <button className="border border-orange-800 text-center m-auto rounded-xl p-2  cursor-pointer hover:bg-gray-950 transition-all active:scale-90 w-[90%] m-auto">{plan.buttonText}</button>
           </div>
         ))}
       </main>

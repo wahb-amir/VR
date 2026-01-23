@@ -52,3 +52,18 @@ body {
 body{
   overflow-x: hidden !important;
 }
+.tablet\:flex {
+    @media (width >= 1000px ) {
+        display: flex;
+    }
+}
+.tablet\:hidden {
+    @media (width >= 1000px ) {
+        display: none;
+    }
+}
+.tablet\:w- {
+    @media (width >= 1000px /* 768px */) {
+        width: 30%;
+    }
+}
