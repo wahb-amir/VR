@@ -36,44 +36,35 @@ export default function RootLayout({ children }) {
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "WebSite",
-    "name": "NeuroVR",
-    "url": siteUrl,
-    "author": {
+    name: "NeuroVR",
+    url: siteUrl,
+    author: {
       "@type": "Person",
-      "name": author,
-      "url": "https://github.com/wahb-amir"
+      name: author,
+      url: "https://github.com/wahb-amir",
     },
-    "description": siteDescription,
-    "publisher": {
+    description: siteDescription,
+    publisher: {
       "@type": "Organization",
-      "name": "NeuroVR",
-      "logo": {
+      name: "NeuroVR",
+      logo: {
         "@type": "ImageObject",
-        "url": image
-      }
+        url: image,
+      },
     },
-    "potentialAction": {
+    potentialAction: {
       "@type": "SearchAction",
-      "target": `${siteUrl}/?s={search_term_string}`,
-      "query-input": "required name=search_term_string"
-    }
+      target: `${siteUrl}/?s={search_term_string}`,
+      "query-input": "required name=search_term_string",
+    },
   };
 
   return (
     <html lang="en">
       <Head>
-         <link
-          rel="preload"
-          href="/coding.mp4"
-          as="video"
-          type="video/mp4"
-        />
-        <link
-          rel="preload"
-          href="/vr.mp4"
-          as="video"
-          type="video/mp4"
-        />
+        <link rel="preload" href="/coding.mp4" as="video" type="video/mp4" />
+        <link rel="preload" href="/vr.mp4" as="video" type="video/mp4" />
+
         <title>{siteTitle}</title>
         <meta name="description" content={siteDescription} />
         <meta name="author" content={author} />
@@ -95,7 +86,9 @@ export default function RootLayout({ children }) {
         />
       </Head>
 
-      <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
+      <body
+        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+      >
         <Navbar />
         <Background />
         {children}
