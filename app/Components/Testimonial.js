@@ -90,7 +90,7 @@ const Testimonial = () => {
   return (
     <section id="testimonial" className="max-w-7xl mx-auto px-4 py-12">
       <header className="mb-8 text-center">
-        <h2 className="md:text-4xl text-2xl font-bold font-serif">
+        <h2 className="md:text-4xl text-2xl font-bold font-serif text-white">
           What people are saying
         </h2>
         <p className="text-sm text-gray-400 mt-2 max-w-2xl mx-auto">

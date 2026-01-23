@@ -3,8 +3,7 @@ import Products from "./Components/Products";
 import Features from "./Components/Feature";
 import Testimonial from "./Components/Testimonial";
 import Contact from "./Components/Contact";
-import Pricing from "./Components/Pricing";
-import VideoCard from "./Components/VideoCard";
+import { WhyChooseUs } from "./Components/Why-choose-us";
 
 export default function Home() {
   return (
@@ -14,6 +13,7 @@ export default function Home() {
         <Hero />
         <Products/>
         <Features/>
+        <WhyChooseUs/>
         <Testimonial/>
         <Contact/>
         
