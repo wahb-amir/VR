@@ -6,7 +6,7 @@ const Main = () => {
   const imageRef = useRef(null);
   const [scrollY, setScrollY] = useState(0);
   const [currentX, setCurrentX] = useState(0);
-  const textRef = useRef(null)
+  const textRef = useRef(null);
   useEffect(() => {
     const handleScroll = () => setScrollY(window.scrollY);
     window.addEventListener("scroll", handleScroll);
@@ -40,19 +40,23 @@ const Main = () => {
   }, [scrollY]);
   return (
     <div className="z-10 text-white p-4 relative w-[90%]">
-      <div
-        ref={imageRef}
-        className="relative flex justify-center items-center top-1/2"
-        style={{ transform: "translateX(0px)" }}
-      >
-        <Image
-          src="/vr.png"
-          alt="vr image"
-          width={300}
-          height={100}
-          sizes="(max-width: 640px) 150px, (max-width: 1024px) 220px, 300px"
-          className="w-[150px] sm:w-[200px] lg:w-[300px] h-auto"
-        />
+      <div className="relative w-full h-[120px] flex justify-center">
+        <div
+          ref={imageRef}
+          className="absolute flex justify-center items-center top-0 left-0"
+          style={{ transform: "translateX(0px)" }}
+        >
+          <Image
+            src="/vr.avif"
+            alt="vr image"
+            width={300}
+            height={100}
+            preload
+
+            sizes="(max-width: 640px) 150px, (max-width: 1024px) 220px, 300px"
+            className="w-[150px] sm:w-[200px] lg:w-[300px] h-auto"
+          />
+        </div>
       </div>
     </div>
   );
