@@ -27,7 +27,7 @@ function Hero() {
           Step into the Future of Learning
         </h1>
         <p className="max-w-2xl text-lg md:text-xl text-neutral-200">
-          EduVerse VR offers immersive educational experiences that captivate
+          Neuro VR offers immersive educational experiences that captivate
           students and transform classrooms.
         </p>
         <div className="flex flex-row gap-4">
