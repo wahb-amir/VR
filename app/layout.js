@@ -62,6 +62,18 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <Head>
+         <link
+          rel="preload"
+          href="/coding.mp4"
+          as="video"
+          type="video/mp4"
+        />
+        <link
+          rel="preload"
+          href="/vr.mp4"
+          as="video"
+          type="video/mp4"
+        />
         <title>{siteTitle}</title>
         <meta name="description" content={siteDescription} />
         <meta name="author" content={author} />
