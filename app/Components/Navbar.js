@@ -4,7 +4,7 @@ import { Menu, X } from "lucide-react";
 
 const Navbar = () => {
   const [isActive, setIsActive] = useState("home");
-  const navItems = ["home", "products", "feature", "pricing", "testimonial"];
+  const navItems = ["home", "products", "feature",  "testimonial"];
   const [isOpen, setIsOpen] = useState(false);
   const overlayRef = useRef(null);
 
@@ -45,7 +45,7 @@ const Navbar = () => {
         >
           <span className="font-semibold text-white">N</span>
           <span className="ml-1 text-white/90">euro</span>
-          <span className="font-semibold pl-2 bg-clip-text text-transparent bg-gradient-to-r from-blue-300 to-teal-300">
+          <span className="font-semibold pl-2 bg-clip-text text-transparent bg-gradient-to-r from-blue-300 to-blue-400">
             VR
           </span>
         </h1>
@@ -63,7 +63,7 @@ const Navbar = () => {
               role="menuitem"
               className={`px-4 py-2 whitespace-nowrap rounded-full cursor-pointer font-mono text-sm transition-all duration-150 ${
                 isActive === items
-                  ? "bg-gradient-to-r from-blue-500 to-teal-400 text-white font-semibold shadow-md"
+                  ? "bg-gradient-to-r from-blue-500 to-blue-400 text-white font-semibold shadow-md"
                   : "text-white/90 hover:bg-white/10"
               }`}
               onClick={() => {

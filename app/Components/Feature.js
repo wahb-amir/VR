@@ -132,7 +132,6 @@ export default function Features() {
     }
   };
 
-  // cleanup on unmount or if rerun
   useEffect(() => {
     return () => {
       cancelledRef.current = true;
@@ -142,7 +141,7 @@ export default function Features() {
   }, []);
 
   return (
-    <section className="py-16" ref={outerRef}>
+    <section className="py-16" ref={outerRef} id="feature">
       <div className="max-w-3xl mx-auto px-4">
         <h1 className="text-4xl font-bold text-white text-center mb-8">
           Why Choose VR for Education?
