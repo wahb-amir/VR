@@ -38,7 +38,7 @@ const NeuroContact = () => {
       className={`min-h-screen text-white flex items-center justify-center overflow-hidden relative z-10 ${inter.className}`}
       id="contact"
     >
-      <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-orange-400/20 rounded-full blur-[120px] pointer-events-none" />
+      <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-blue-400/20 rounded-full blur-[120px] pointer-events-none" />
       <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-blue-700/20 rounded-full blur-[120px] pointer-events-none" />
 
       <div className="container mx-auto px-4 flex flex-col lg:flex-row items-center justify-between relative z-10 w-full max-w-7xl">
@@ -50,17 +50,17 @@ const NeuroContact = () => {
 
         {/* Form card */}
         <div className="w-full max-w-xl mx-4">
-          <div className="backdrop-blur-sm bg-white/5 border border-orange-400/30 p-8 md:p-12 rounded-3xl shadow-2xl relative overflow-hidden group transition-all duration-500 hover:border-orange-300 hover:shadow-orange-500/20">
-            <div className="absolute inset-0 bg-gradient-to-br from-orange-400/5 to-blue-700/5 pointer-events-none" />
+          <div className="backdrop-blur-sm bg-white/5 border border-blue-400/30 p-8 md:p-12 rounded-3xl shadow-2xl relative overflow-hidden group transition-all duration-500 hover:border-blue-300 hover:shadow-blue-500/20">
+            <div className="absolute inset-0 bg-gradient-to-br from-blue-400/5 to-blue-700/5 pointer-events-none" />
 
             <div className="flex items-center gap-4 mb-8">
-              <div className="w-12 h-12 rounded-full bg-gradient-to-tr from-orange-400 to-white p-[2px]">
+              <div className="w-12 h-12 rounded-full bg-gradient-to-tr from-blue-400 to-white p-[2px]">
                 <div className="w-full h-full rounded-full bg-black flex items-center justify-center text-xs font-bold">
                   NVR
                 </div>
               </div>
               <div>
-                <p className="text-orange-400 text-sm">We are NeuroVR</p>
+                <p className="text-blue-400 text-sm">We are NeuroVR</p>
                 <p className="text-white font-medium">
                   Ready to build the future?
                 </p>
@@ -81,7 +81,7 @@ const NeuroContact = () => {
                     placeholder="your name"
                     value={formData.name}
                     onChange={handleChange}
-                    className="mx-2 bg-transparent border-b-2 border-orange-600 focus:border-orange-400 outline-none text-white placeholder-orange-300 w-40 transition-colors"
+                    className="mx-2 bg-transparent border-b-2 border-blue-600 focus:border-blue-400 outline-none text-white placeholder-blue-300 w-40 transition-colors"
                   />
                   .
                 </p>
@@ -92,7 +92,7 @@ const NeuroContact = () => {
                     name="interest"
                     value={formData.interest}
                     onChange={handleChange}
-                    className="mx-2 bg-transparent border-b-2 border-gray-600 focus:border-orange-400 outline-none text-orange-300 font-medium cursor-pointer transition-colors appearance-none"
+                    className="mx-2 bg-transparent border-b-2 border-gray-600 focus:border-blue-400 outline-none text-blue-300 font-medium cursor-pointer transition-colors appearance-none"
                   >
                     <option className="bg-neutral-900 text-white" value="VR Software">VR Software</option>
                     <option className="bg-neutral-900 text-white" value="AR Integration">AR Integration</option>
@@ -111,7 +111,7 @@ const NeuroContact = () => {
                     placeholder="your@email.com"
                     value={formData.email}
                     onChange={handleChange}
-                    className="mx-2 bg-transparent border-b-2 border-orange-600 focus:border-orange-400 outline-none text-white placeholder-orange-300 w-full sm:w-64 transition-colors"
+                    className="mx-2 bg-transparent border-b-2 border-blue-600 focus:border-blue-400 outline-none text-white placeholder-blue-300 w-full sm:w-64 transition-colors"
                   />
                   to discuss details.
                 </p>
@@ -120,9 +120,9 @@ const NeuroContact = () => {
                   <button
                     type="submit"
                     disabled={isSubmitting}
-                    className="group relative w-full py-4 bg-orange-400 text-black font-semibold rounded-xl overflow-hidden transition-all hover:scale-[1.02]"
+                    className="group relative w-full py-4 bg-blue-400 text-black font-semibold rounded-xl overflow-hidden transition-all hover:scale-[1.02]"
                   >
-                    <span className="absolute inset-0 w-full h-full bg-gradient-to-r from-orange-400 to-orange-100 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                    <span className="absolute inset-0 w-full h-full bg-gradient-to-r from-blue-400 to-blue-100 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                     <span className="relative z-10 flex items-center justify-center gap-2">
                       {isSubmitting ? "Sending..." : "Send Message"}
                     </span>
@@ -140,7 +140,7 @@ const NeuroContact = () => {
                 </p>
                 <button
                   onClick={() => setIsSent(false)}
-                  className="mt-6 text-sm text-orange-400 hover:text-orange-300 underline"
+                  className="mt-6 text-sm text-blue-400 hover:text-blue-300 underline"
                 >
                   Send another?
                 </button>
