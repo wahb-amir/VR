@@ -67,8 +67,7 @@ const Navbar = () => {
                      hover:animate-pulse transition-all duration-300 active:scale-95"
           onClick={() => handleScroll("home")}
         >
-          <span className="font-semibold text-white">N</span>
-          <span className="ml-1 text-white/90">euro</span>
+         <span className="ml-1 text-white/90">Neuro</span>
           <span className="font-semibold pl-2 bg-clip-text text-transparent bg-gradient-to-r from-blue-300 to-blue-400">
             VR
           </span>
@@ -129,8 +128,7 @@ const Navbar = () => {
               className="text-xl flex cursor-pointer items-center active:scale-95"
               onClick={() => handleScroll("home")}
             >
-              <span className="font-semibold text-white">N</span>
-              <span className="ml-1 text-white/90">euro</span>
+              <span className="ml-1 text-white/90">Neuro</span>
               <span className="font-semibold pl-2 bg-clip-text text-transparent bg-gradient-to-r from-blue-300 to-teal-300">
                 VR
               </span>
@@ -163,8 +161,8 @@ const Navbar = () => {
                     handleScroll("home");
                   }}
                 >
-                  <span className="font-semibold text-white">N</span>
-                  <span className="ml-1 text-white/90">euro</span>
+                  
+                  <span className="ml-1 text-white/90">Neuro</span>
                   <span className="font-semibold pl-2 bg-clip-text text-transparent bg-gradient-to-r from-blue-300 to-teal-300">
                     VR
                   </span>
