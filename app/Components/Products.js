@@ -96,7 +96,7 @@ export default function Products() {
 
                 <div className="flex flex-col flex-1">
                   <div className="flex items-center gap-4 mb-3">
-                    <span className="inline-flex items-center justify-center p-3 rounded-lg bg-gradient-to-r from-blue-500 to-teal-400 text-white shadow-sm">
+                    <span className="inline-flex items-center justify-center p-3 rounded-lg bg-gradient-to-r from-blue-600 to-blue-300 backdrop-blur-2xl text-white shadow-sm">
                       <Icon className="w-6 h-6" aria-hidden />
                     </span>
 
@@ -111,7 +111,7 @@ export default function Products() {
                   <div className="mt-auto flex items-center gap-3">
                     <button
                       onClick={() => setOpenItem({ ...item, idx })}
-                      className="px-4 py-2 rounded-full bg-gradient-to-r from-blue-500 to-teal-400 text-white font-medium shadow-sm hover:scale-105 transition-transform duration-200 w-full"
+                      className="px-4 py-2 rounded-full bg-gray-700 text-white font-medium shadow-sm hover:scale-105 transition-transform duration-200 w-full"
                       aria-label={`Open ${item.heading} demo`}
                     >
                       View demo
