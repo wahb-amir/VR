@@ -9,7 +9,7 @@ function Hero() {
     else console.warn("Skills section not found!");
   };
   return (
-    <section className="relative w-screen md:h-[65vh] sm:h-[60vh] h-[85vh] min-h-[400px] overflow-hidden text-white ">
+    <section className="relative w-screen md:h-[65vh] sm:h-[60vh] h-[85vh] min-h-[400px] overflow-hidden text-white " id="home">
       <Image
         src="/bg.webp"
         alt="background image"
