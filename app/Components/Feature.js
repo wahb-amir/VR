@@ -212,7 +212,6 @@ export default function Features() {
           </div>
         </div>
 
-        {/* feature boxes */}
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
           {features.map((f, i) => (
             <div

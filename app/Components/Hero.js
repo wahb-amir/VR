@@ -21,7 +21,6 @@ function Hero() {
 
       <div className="absolute inset-0 bg-black/50" />
 
-      {/* content container stays centered and constrained */}
       <div className="relative z-10 max-w-7xl mx-auto w-full px-4 flex flex-col items-center gap-6 text-center top-1/2 -translate-y-1/2">
         <h1 className="text-4xl md:text-6xl font-bold font-headline leading-tight tracking-tighter">
           Step into the Future of Learning
