@@ -50,7 +50,7 @@ const Contact = () => {
     <h1 className="text-center md:text-5xl text-3xl text-white font-bold font-serif ">Ready to Transform Your Classroom?</h1>
     </div>
     <section
-      className={`min-h-screen text-white flex items-center justify-center overflow-hidden relative z-10 antialiased ${inter.className}`}
+      className={`min-h-screen text-white flex items-center justify-center overflow-hidden relative z-10 antialiased ${inter.className} `}
       id="contact"
       >
       <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-blue-400/20 rounded-full blur-[120px] pointer-events-none" />

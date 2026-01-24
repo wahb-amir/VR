@@ -222,7 +222,7 @@ export default function Features() {
 
             return (
               <div
-                key={f.id}
+                key={f.description}
                 className="w-full sm:w-[340px] bg-gray-800/50 backdrop-blur-md rounded-xl p-5 flex flex-col items-start hover:scale-[1.02] transition-transform duration-300"
               >
                 <Icon className="text-3xl mb-3 text-blue-400" />

@@ -90,6 +90,7 @@ export default function Products() {
                     src={item.img}
                     alt={item.heading}
                     fill
+                    priority
                     className="object-cover opacity-80 rounded-lg"
                   />
                 </div>
