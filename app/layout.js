@@ -2,7 +2,6 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Navbar from "./Components/Navbar";
 import Footer from "./Components/Footer";
-import Head from "next/head";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -60,7 +59,8 @@ export default function RootLayout({ children }) {
 
   return (
     <html lang="en">
-      <Head>
+      <head>
+        {/* preloads, meta tags — keep these server-rendered so they appear in page source */}
         <link rel="preload" href="/coding.mp4" as="video" type="video/mp4" />
         <link rel="preload" href="/vr.mp4" as="video" type="video/mp4" />
 
@@ -79,18 +79,18 @@ export default function RootLayout({ children }) {
         <meta name="twitter:image" content={image} />
         <meta name="twitter:creator" content="@wahb_amir" />
         <link rel="canonical" href={siteUrl} />
+
+       
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
-      </Head>
+      </head>
 
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
+      <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
         <div className="h-fit w-full m-0 p-0 bg-gradient-to-t from-gray-900 via-gray-900 to-gray-800">
           <Navbar />
-          <hr className=" text-gray-500"/>
+          <hr className=" text-gray-500" />
         </div>
 
         {children}
