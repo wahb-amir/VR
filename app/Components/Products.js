@@ -25,24 +25,19 @@ export default function Products() {
     },
   ];
 
-  // Modal state
-  const [openItem, setOpenItem] = useState(null); // holds the item object when modal is open
+  const [openItem, setOpenItem] = useState(null); 
   const overlayRef = useRef(null);
   const closeBtnRef = useRef(null);
 
-  // Close modal helper
   const closeModal = () => setOpenItem(null);
 
-  // Handle Escape and focus management + body scroll lock
   useEffect(() => {
     const onKey = (e) => {
       if (e.key === "Escape") closeModal();
     };
     if (openItem) {
       window.addEventListener("keydown", onKey);
-      // lock scroll
       document.body.style.overflow = "hidden";
-      // focus close button after a tick
       setTimeout(() => closeBtnRef.current?.focus(), 50);
     } else {
       document.body.style.overflow = "";
@@ -53,7 +48,6 @@ export default function Products() {
     };
   }, [openItem]);
 
-  // Overlay click: close only when clicking backdrop
   const handleOverlayClick = (e) => {
     if (e.target === overlayRef.current) closeModal();
   };
@@ -84,7 +78,6 @@ export default function Products() {
                 key={idx}
                 className="group relative overflow-hidden rounded-2xl border border-white/10 bg-gray-800 p-6 shadow-md hover:shadow-xl transition-shadow duration-300 flex flex-col h-full"
               >
-                {/* Image */}
                 <div className="relative w-full h-48 rounded-lg overflow-hidden mb-4">
                   <Image
                     src={item.img}
@@ -108,7 +101,6 @@ export default function Products() {
 
                   <p className="mt-2 text-white/70">{item.desc}</p>
 
-                  {/* push button to bottom */}
                   <div className="mt-auto flex items-center gap-3">
                     <button
                       onClick={() => setOpenItem({ ...item, idx })}
@@ -133,17 +125,14 @@ export default function Products() {
           className="fixed inset-0 z-[9999] flex items-center justify-center p-4"
           aria-hidden={!openItem}
         >
-          {/* backdrop */}
           <div className="absolute inset-0 bg-black/60 backdrop-blur-sm" />
 
-          {/* dialog */}
           <div
             role="dialog"
             aria-modal="true"
             aria-label={`${openItem.heading} demo`}
             className="relative z-10 w-full max-w-3xl mx-auto rounded-2xl overflow-hidden bg-gradient-to-tr from-gray-900 to-gray-800 shadow-2xl"
           >
-            {/* header: image + close */}
             <div className="relative w-full h-64 sm:h-80">
               <Image
                 src={openItem.img}
@@ -162,7 +151,6 @@ export default function Products() {
               </button>
             </div>
 
-            {/* body */}
             <div className="p-6 text-white">
               <div className="flex items-start gap-4">
                 <div className="inline-flex items-center justify-center p-3 rounded-lg bg-gradient-to-r from-blue-500 to-blue-400 text-white shadow-sm">
