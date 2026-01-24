@@ -164,8 +164,7 @@ export default function Products() {
             {/* body */}
             <div className="p-6 text-white">
               <div className="flex items-start gap-4">
-                <div className="inline-flex items-center justify-center p-3 rounded-lg bg-gradient-to-r from-blue-500 to-teal-400 text-white shadow-sm">
-                  {/* re-render small icon */}
+                <div className="inline-flex items-center justify-center p-3 rounded-lg bg-gradient-to-r from-blue-500 to-blue-400 text-white shadow-sm">
                   {openItem.icon && React.createElement(openItem.icon, {
                     className: "w-6 h-6",
                     "aria-hidden": true
@@ -177,9 +176,8 @@ export default function Products() {
                 </div>
               </div>
 
-              {/* example actions */}
               <div className="mt-6 flex flex-wrap gap-3">
-                <button className="rounded-full bg-gradient-to-r from-blue-500 to-teal-400 px-4 py-2 text-white font-medium shadow-sm">
+                <button className="rounded-full bg-gray-600 px-4 py-2 text-white font-medium shadow-sm">
                   Launch demo
                 </button>
                 <a
