@@ -1,7 +1,9 @@
 "use client";
 import Image from "next/image";
-
+import DemoRequestModal from "./DemoModal";
+import { useState } from "react";
 function Hero() {
+   const [open, setOpen] = useState(false);
   const handleScroll = (id) => {
     const section = document.getElementById(id);
     if (section)
@@ -9,7 +11,10 @@ function Hero() {
     else console.warn("Skills section not found!");
   };
   return (
-    <section className="relative w-screen md:h-[65vh] sm:h-[60vh] h-[85vh] min-h-[400px] overflow-hidden text-white " id="home">
+    <section
+      className="relative w-screen md:h-[65vh] sm:h-[60vh] h-[85vh] min-h-[400px] overflow-hidden text-white "
+      id="home"
+    >
       <Image
         src="/bg.webp"
         alt="background image"
@@ -42,11 +47,22 @@ function Hero() {
             className="bg-white/20 backdrop-blur-sm border-2 border-white/10 p-3 text-md rounded-md cursor-pointer hover:bg-white/30 transition-all duration-100 active:scale-[95%] active:bg-white/40"
             onClick={() => {
               handleScroll("product");
+              setOpen(true);
             }}
           >
             Request a Demo
           </button>
         </div>
+
+      {/* Modal */}
+      <DemoRequestModal
+        open={open}
+        onClose={() => setOpen(false)}
+        onCreate={(project) => {
+          console.log("Project created:", project);
+        
+        }}
+      />
       </div>
     </section>
   );

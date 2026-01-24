@@ -4,13 +4,14 @@ import Features from "./Components/Feature";
 import Testimonial from "./Components/Testimonial";
 import Contact from "./Components/Contact";
 import { WhyChooseUs } from "./Components/Why-choose-us";
-
+import DemoModal from "./Components/DemoModal";
 export default function Home() {
   return (
     <div className="flex min-h-screen justify-center 
     text-black dark:text-white bg-gradient-to-t from-gray-900 via-gray-900 to-gray-800">
       <div className="flex flex-col justify-center items-center  z-10 mb-auto">
         <Hero />
+        <DemoModal/>
         <Products/>
         <Features/>
         <WhyChooseUs/>
