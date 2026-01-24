@@ -89,7 +89,7 @@ const Testimonial = () => {
 
   return (
     <>
-      <span className="w-full min-h-[2px] bg-gray-700 mt-5 mb-5 "/>
+    
     <section id="testimonial" className="max-w-7xl mx-auto px-4 py-12">
       <header className="mb-8 text-center">
         <h2 className="md:text-4xl text-2xl font-bold font-serif text-white">

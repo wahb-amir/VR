@@ -45,7 +45,7 @@ const Contact = () => {
 
   return (
     <>
-      <span className="w-full min-h-[2px] bg-gray-700 mt-5 mb-5 "/>
+     
     <div className="w-full h-fit flex justify-around items-center mt-5">
     <h1 className="text-center md:text-5xl text-3xl text-white font-bold font-serif ">Ready to Transform Your Classroom?</h1>
     </div>

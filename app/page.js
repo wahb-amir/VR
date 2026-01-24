@@ -18,7 +18,9 @@ export default function Home() {
         <Features/>
          <span className="w-full min-h-[2px] bg-gray-700 mt-5 mb-5 "/>
         <WhyChooseUs/>
+         <span className="w-full min-h-[2px] bg-gray-700 mt-5 mb-5 "/>
         <Testimonial/>
+         <span className="w-full min-h-[2px] bg-gray-700 mt-5 mb-5 "/>
         <Contact/>
         
       </div>
