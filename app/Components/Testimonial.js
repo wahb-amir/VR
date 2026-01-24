@@ -88,6 +88,8 @@ const Testimonial = () => {
       .toUpperCase();
 
   return (
+    <>
+      <span className="w-full min-h-[2px] bg-gray-700 mt-5 mb-5 "/>
     <section id="testimonial" className="max-w-7xl mx-auto px-4 py-12">
       <header className="mb-8 text-center">
         <h2 className="md:text-4xl text-2xl font-bold font-serif text-white">
@@ -115,7 +117,7 @@ const Testimonial = () => {
                 "bg-black/50", 
                 "backdrop-blur-sm", 
                 "border border-white/8", 
-                "shadow-md", 
+                "shadow-md hover:bg-black/60 hover:border hover:border-t-blue-400 hover:border-b-blue-300 hover:border-l-blue-400 hover:border-r-blue-300  hover:scale-105 hover:shadow-sm hover:shadow-gray-300 transition-all", 
              
                 "opacity-0 translate-y-6 scale-[0.995] transition-all duration-700 ease-out",
               ].join(" ")
@@ -167,6 +169,7 @@ const Testimonial = () => {
         ))}
       </main>
     </section>
+    </>
   );
 };
 
