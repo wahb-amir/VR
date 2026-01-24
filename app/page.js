@@ -11,9 +11,12 @@ export default function Home() {
     text-black dark:text-white bg-gradient-to-t from-gray-900 via-gray-900 to-gray-800">
       <div className="flex flex-col justify-center items-center  z-10 mb-auto">
         <Hero />
+         <span className="w-full min-h-[2px] bg-gray-700 mt-5 mb-5 "/>
         <DemoModal/>
         <Products/>
+         <span className="w-full min-h-[2px] bg-gray-700 mt-5 mb-5 "/>
         <Features/>
+         <span className="w-full min-h-[2px] bg-gray-700 mt-5 mb-5 "/>
         <WhyChooseUs/>
         <Testimonial/>
         <Contact/>
