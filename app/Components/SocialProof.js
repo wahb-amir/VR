@@ -35,7 +35,7 @@ const SocialProof = () => {
   ];
 
   return (
-    <section className="relative py-24 px-6">
+    <section className="relative py-24 px-6" id="impact">
       
 
       <div className="max-w-6xl mx-auto">

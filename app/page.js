@@ -25,7 +25,6 @@ export default function Home() {
         <Testimonial/>
          <span className="w-full min-h-[2px] bg-gray-700 mt-5 mb-5 "/>
         <Contact/>
-        
       </div>
     </div>
   );

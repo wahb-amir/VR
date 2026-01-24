@@ -4,35 +4,44 @@ import { Menu, X } from "lucide-react";
 
 const Navbar = () => {
   const [isActive, setIsActive] = useState("home");
-  const navItems = ["home", "products", "feature", "testimonial"];
+  const navItems = [
+    "home",
+    "products",
+    "features",
+    "why us",
+    "impact",
+    "testimonials",
+  ];
+
   const [isOpen, setIsOpen] = useState(false);
   const overlayRef = useRef(null);
 
   useEffect(() => {
-  const sections = navItems.map((id) => document.getElementById(id));
-  if (!sections) return;
+    const ids = [...navItems, "contact"];
+    const sections = ids.map((id) => document.getElementById(id)).filter(Boolean);
+    if (!sections.length) return;
 
-  const observer = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          setIsActive(entry.target.id);
-        }
-      });
-    },
-    {
-      root: null, // viewport
-      rootMargin: "-50% 0px -50% 0px", // trigger when section is near center
-      threshold: 0,
-    }
-  );
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setIsActive(entry.target.id);
+          }
+        });
+      },
+      {
+        root: null,
+        rootMargin: "-50% 0px -50% 0px",
+        threshold: 0,
+      }
+    );
 
-  sections.forEach((section) => section && observer.observe(section));
+    sections.forEach((section) => observer.observe(section));
 
-  return () => {
-    sections.forEach((section) => section && observer.unobserve(section));
-  };
-}, []);
+    return () => {
+      sections.forEach((section) => observer.unobserve(section));
+    };
+  }, []);
 
   useEffect(() => {
     const onKey = (e) => {
@@ -42,7 +51,6 @@ const Navbar = () => {
     return () => window.removeEventListener("keydown", onKey);
   }, []);
 
-  // close if clicking overlay
   const handleOverlayClick = (e) => {
     if (e.target === overlayRef.current) setIsOpen(false);
   };
@@ -58,27 +66,25 @@ const Navbar = () => {
 
   return (
     <>
-      
       <nav
         className="hidden tablet:flex md:flex items-center justify-between px-6 py-4 z-50 fixed top-0 w-full pointer-events-none"
         aria-label="Primary"
-      >  <h1
-          className="text-2xl flex cursor-pointer items-center pointer-events-auto
-                     hover:animate-pulse transition-all duration-300 active:scale-95"
-          onClick={() => handleScroll("home")}
+      >
+        <h1
+          className="text-2xl flex cursor-pointer items-center pointer-events-auto hover:animate-pulse transition-all duration-300 active:scale-95"
+          onClick={() => {
+            setIsActive("home");
+            handleScroll("home");
+          }}
         >
-         <span className="ml-1 text-white/90">Neuro</span>
+          <span className="ml-1 text-white/90">Neuro</span>
           <span className="font-semibold pl-2 bg-clip-text text-transparent bg-gradient-to-r from-blue-300 to-blue-400">
             VR
           </span>
         </h1>
 
-        
         <ul
-          className="absolute left-1/2 transform -translate-x-1/2 pointer-events-auto
-                     flex items-center space-x-2
-                     bg-black/20 backdrop-blur-md border border-white/10 shadow-lg
-                     rounded-full px-2 py-1.5 max-w-[80%] overflow-x-auto"
+          className="absolute left-1/2 transform -translate-x-1/2 pointer-events-auto flex items-center space-x-2 bg-black/20 backdrop-blur-md border border-white/10 shadow-lg rounded-full px-2 py-1.5 max-w-[80%] overflow-x-auto"
           role="menubar"
         >
           {navItems.map((items) => (
@@ -102,11 +108,12 @@ const Navbar = () => {
 
         <div className="pointer-events-auto">
           <button
-            className="bg-gradient-to-r from-blue-500 to-blue-400 text-white rounded-full px-5 py-2 hover:scale-105 transition active:scale-95 text-sm shadow-md font-medium"
+            className={`bg-gradient-to-r from-blue-500 to-blue-400 text-white rounded-full px-5 py-2 hover:scale-105 transition active:scale-95 text-sm shadow-md font-medium ${
+              isActive === "contact" ? " ring-2 ring-blue-400/60 shadow-lg shadow-blue-400 animate-pulse" : ""
+            }`}
             onClick={() => {
-              document
-                .getElementById("contact")
-                ?.scrollIntoView({ behavior: "smooth" });
+              setIsActive("contact");
+              document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" });
             }}
           >
             Contact us
@@ -114,22 +121,21 @@ const Navbar = () => {
         </div>
       </nav>
 
-    
       <nav
         className="flex tablet:hidden md:hidden items-center justify-center z-[100] fixed top-4 w-full px-4"
         aria-label="Mobile primary"
       >
-     
         {!isOpen && (
-          <div
-            className="w-full max-w-lg bg-black/30 backdrop-blur-md border border-white/10 shadow-xl rounded-full px-4 py-3 flex items-center justify-between transition-all duration-300"
-          >
+          <div className="w-full max-w-lg bg-black/30 backdrop-blur-md border border-white/10 shadow-xl rounded-full px-4 py-3 flex items-center justify-between transition-all duration-300">
             <h1
               className="text-xl flex cursor-pointer items-center active:scale-95"
-              onClick={() => handleScroll("home")}
+              onClick={() => {
+                setIsActive("home");
+                handleScroll("home");
+              }}
             >
               <span className="ml-1 text-white/90">Neuro</span>
-              <span className="font-semibold pl-2 bg-clip-text text-transparent bg-gradient-to-r from-blue-300 to-teal-300">
+              <span className="font-semibold pl-2 bg-clip-text text-transparent bg-gradient-to-r from-blue-300 to-blue-400">
                 VR
               </span>
             </h1>
@@ -150,18 +156,16 @@ const Navbar = () => {
             onClick={handleOverlayClick}
             className="fixed inset-0 z-[100] flex flex-col items-center pt-4 px-4 bg-black/60 backdrop-blur-sm animate-in fade-in duration-200"
           >
-            <div
-              className="w-full max-w-lg bg-black/80 backdrop-blur-xl border border-white/10 rounded-3xl p-6 shadow-2xl transform transition-all duration-300 scale-100 opacity-100"
-            >
+            <div className="w-full max-w-lg bg-black/80 backdrop-blur-xl border border-white/10 rounded-3xl p-6 shadow-2xl transform transition-all duration-300 scale-100 opacity-100">
               <div className="flex items-center justify-between mb-8">
                 <h1
                   className="text-2xl flex cursor-pointer items-center"
                   onClick={() => {
                     setIsOpen(false);
+                    setIsActive("home");
                     handleScroll("home");
                   }}
                 >
-                  
                   <span className="ml-1 text-white/90">Neuro</span>
                   <span className="font-semibold pl-2 bg-clip-text text-transparent bg-gradient-to-r from-blue-300 to-teal-300">
                     VR
@@ -198,11 +202,12 @@ const Navbar = () => {
                 <button
                   onClick={() => {
                     setIsOpen(false);
-                    document
-                      .getElementById("contact")
-                      ?.scrollIntoView({ behavior: "smooth" });
+                    setIsActive("contact");
+                    document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" });
                   }}
-                  className="mt-4 w-full bg-gradient-to-r from-blue-500 to-teal-400 text-white rounded-xl px-6 py-4 hover:opacity-90 transition active:scale-95 font-semibold shadow-lg"
+                  className={`mt-4 w-full bg-gradient-to-r from-blue-500 to-teal-400 text-white rounded-xl px-6 py-4 hover:opacity-90 transition active:scale-95 font-semibold shadow-lg ${
+                    isActive === "contact" ? "animate-pulse ring-2 ring-blue-400/60 shadow-lg" : ""
+                  }`}
                 >
                   Contact Us
                 </button>

@@ -147,7 +147,7 @@ export default function Features() {
   }, []);
 
   return (
-    <section className="py-16" ref={outerRef} id="feature">
+    <section className="py-16" ref={outerRef} id="features">
       <div className=" mx-auto px-4">
         <h1 className="text-4xl font-bold text-white text-center mb-8">
           Why Choose VR for Education?

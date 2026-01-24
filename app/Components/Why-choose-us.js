@@ -39,7 +39,7 @@ const comparisonData = [
 
 export function WhyChooseUs() {
   return (
-    <section id="why-choose-us" className="py-16 w-full text-gray-100">
+    <section id="why us" className="py-16 w-full text-gray-100">
       <div className="container mx-auto px-4 md:px-8 max-w-7xl">
         <div className="text-center mb-8 md:mb-12">
           <h2 className="text-2xl md:text-5xl font-bold font-headline text-white">
