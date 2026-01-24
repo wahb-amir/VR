@@ -1,6 +1,8 @@
 "use client";
 import React, { useEffect, useRef, useState } from "react";
-import { User } from "lucide-react";
+import { User, GraduationCap, TrendingUp } from "lucide-react";
+import { Lightbulb } from "lucide-react";
+import { Microscope } from "lucide-react";
 
 export default function Features() {
   const chat = [
@@ -31,26 +33,30 @@ export default function Features() {
     { from: "student", text: "Aight, I'm sold. Show me a demo pls 😎" },
   ];
 
-  const features = [
+  const benefits = [
     {
-      title: "Immersive Labs",
-      desc: "Step into cells, planets, and history streets.",
-      icon: "🔬",
+      title: "Immersive Learning",
+      description:
+        "Transport students to virtual environments that make complex subjects tangible and understandable.",
+      icon: GraduationCap,
     },
     {
-      title: "Safe Experiments",
-      desc: "Learn by doing without real-world risk.",
-      icon: "💥",
+      title: "Increased Engagement",
+      description:
+        "Capture students' attention with interactive content that fosters curiosity and a love for learning.",
+      icon: TrendingUp,
     },
     {
-      title: "Analytics Dashboard",
-      desc: "Track progress and performance easily.",
-      icon: "📊",
+      title: "Improved Retention",
+      description:
+        "Experiential learning in VR leads to better knowledge retention compared to traditional methods.",
+      icon: Lightbulb,
     },
     {
-      title: "Quick Setup",
-      desc: "Teachers onboard in minutes, zero PhD required.",
-      icon: "🧑‍🏫",
+      title: "Safe Exploration",
+      description:
+        "Allow students to conduct experiments and explore scenarios that would be impossible or unsafe in real life.",
+      icon: Microscope,
     },
   ];
 
@@ -142,16 +148,14 @@ export default function Features() {
 
   return (
     <section className="py-16" ref={outerRef} id="feature">
-      <div className="max-w-3xl mx-auto px-4">
+      <div className=" mx-auto px-4">
         <h1 className="text-4xl font-bold text-white text-center mb-8">
           Why Choose VR for Education?
         </h1>
-
-        {/* chat box */}
-        <div className="mb-12 relative rounded-2xl overflow-hidden shadow-xl border border-white/6 bg-gradient-to-b from-gray-900/80 to-gray-800/70 p-5">
+        <div className="mb-12 relative max-w-3xl m-auto rounded-2xl overflow-hidden shadow-xl border border-white/6 bg-gradient-to-b from-gray-900/80 to-gray-800/70 p-5">
           <div
             ref={containerRef}
-            className="max-h-[380px] overflow-auto space-y-3 rounded-xl p-3 bg-gray-900/20 backdrop-blur-sm"
+            className="max-h-[380px]  overflow-auto space-y-3 rounded-xl p-3 bg-gray-900/20 backdrop-blur-sm"
           >
             {displayed.map((m, i) => {
               const isStudent = m.from === "student";
@@ -212,17 +216,21 @@ export default function Features() {
           </div>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-          {features.map((f, i) => (
-            <div
-              key={i}
-              className="bg-gray-800/50 backdrop-blur-md rounded-xl p-5 flex flex-col items-start hover:scale-[1.02] transition-transform duration-300"
-            >
-              <div className="text-3xl mb-3">{f.icon}</div>
-              <h3 className="text-xl font-bold text-white mb-2">{f.title}</h3>
-              <p className="text-white/60 text-sm">{f.desc}</p>
-            </div>
-          ))}
+        <div className="flex flex-wrap justify-center gap-6 ">
+          {benefits.map((f) => {
+            const Icon = f.icon;
+
+            return (
+              <div
+                key={f.id}
+                className="w-full sm:w-[340px] bg-gray-800/50 backdrop-blur-md rounded-xl p-5 flex flex-col items-start hover:scale-[1.02] transition-transform duration-300"
+              >
+                <Icon className="text-3xl mb-3 text-blue-400" />
+                <h3 className="text-xl font-bold text-white mb-2">{f.title}</h3>
+                <p className="text-white/60 text-sm">{f.description}</p>
+              </div>
+            );
+          })}
         </div>
       </div>
 
