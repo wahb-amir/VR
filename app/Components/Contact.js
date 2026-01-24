@@ -44,16 +44,20 @@ const Contact = () => {
   };
 
   return (
+    <>
+      <span className="w-full min-h-[2px] bg-gray-700 mt-5 mb-5 "/>
+    <div className="w-full h-fit flex justify-around items-center mt-5">
+    <h1 className="text-center md:text-5xl text-3xl text-white font-bold font-serif ">Ready to Transform Your Classroom?</h1>
+    </div>
     <section
       className={`min-h-screen text-white flex items-center justify-center overflow-hidden relative z-10 antialiased ${inter.className}`}
       id="contact"
-    >
+      >
       <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-blue-400/20 rounded-full blur-[120px] pointer-events-none" />
       <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-blue-700/20 rounded-full blur-[120px] pointer-events-none" />
-
       <div className="container mx-auto px-4 flex flex-col lg:flex-row items-center justify-between relative z-10 w-full max-w-7xl">
         <div
-          // big decorative heading — Safari text fix applied
+          
           className={`hidden lg:block text-[12rem] leading-none text-white italic tracking-tighter ${playfair.className}`}
           style={safariTextFixStyle}
         >
@@ -184,6 +188,7 @@ const Contact = () => {
         </div>
       </div>
     </section>
+    </>
   );
 };
 
