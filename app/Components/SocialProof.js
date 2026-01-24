@@ -6,7 +6,7 @@ const SocialProof = () => {
       metric: "22%",
       title: "Test Score Increase at Northwood High",
       description:
-        "A pilot program with 150, 10th graders showed a 22% improvement in biology test scores for students using EduVerse VR compared to control groups.",
+        "A pilot program with 150, 10th graders showed a 22% improvement in biology test scores for students using Neuro Vr VR compared to control groups.",
       location: "Northwood High",
       link: "#",
     },
@@ -44,7 +44,7 @@ const SocialProof = () => {
             Proven Impact in the Classroom
           </h2>
           <p className="md:text-lg text-md text-slate-300 max-w-2xl mx-auto">
-            Don't just take our word for it. See the results educators are achieving with EduVerse VR.
+            Don't just take our word for it. See the results educators are achieving with Neuro Vr VR.
           </p>
 
           <div className="mt-8 flex items-center justify-center">
